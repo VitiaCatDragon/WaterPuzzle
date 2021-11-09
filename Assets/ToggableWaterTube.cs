@@ -8,15 +8,12 @@ public class ToggableWaterTube : MonoBehaviour
     private WaterSpawner spawner;
 
     public List<WaterSpawner> disableWaterSpawners;
-    
+
+    public Animator valveAnimator;
+
     void Start()
     {
         spawner = GetComponentInChildren<WaterSpawner>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     private void OnMouseUp()
@@ -26,6 +23,7 @@ public class ToggableWaterTube : MonoBehaviour
         {
             waterSpawner.enabled = true;
         }
+        valveAnimator.Play("ValveClose");
     }
 
     private void OnMouseDown()
@@ -35,5 +33,6 @@ public class ToggableWaterTube : MonoBehaviour
         {
             waterSpawner.enabled = false;
         }
+        valveAnimator.Play("ValveOpen");
     }
 }
