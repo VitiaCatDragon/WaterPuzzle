@@ -731,6 +731,8 @@ MonoBehaviour:
   finishWaterCount: 0
   needFinishWaterCount: 80
   fillWaterText: {fileID: 1032001338}
+  tutorial: {fileID: 0}
+  world: {fileID: 0}
   finished: 0
 --- !u!1001 &419718157
 PrefabInstance:
@@ -1950,6 +1952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135058268229314547, guid: d0b13e394c3b2ee4396cb61b5db29c8f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0b13e394c3b2ee4396cb61b5db29c8f, type: 3}

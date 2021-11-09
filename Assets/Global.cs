@@ -11,6 +11,9 @@ public class Global : MonoBehaviour
     public int needFinishWaterCount = 100;
     public Text fillWaterText;
 
+    public GameObject tutorial;
+    public GameObject world;
+
     public bool finished = false;
 
     public static Global Main;
@@ -19,6 +22,11 @@ public class Global : MonoBehaviour
     private void Awake()
     {
         Main = this;
+        if (tutorial != null)
+        {
+            tutorial.SetActive(true);
+            world.SetActive(false);
+        }
     }
 
     void FixedUpdate()
@@ -40,6 +48,12 @@ public class Global : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("Level" + Level);
+    }
+
+    public void CloseTutorial()
+    {
+        Destroy(tutorial);
+        world.SetActive(true);
     }
 
     private IEnumerator LoadNextLevel()
