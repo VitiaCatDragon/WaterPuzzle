@@ -6,4 +6,5 @@ public class Water : MonoBehaviour
 {
     public WaterSpawner spawner;
     public bool finishWater;
+    public bool fromSponge = false;
 }

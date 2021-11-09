@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sponge : MonoBehaviour {
+    
     private WaterSpawner spawner;
 
-    void Start() {
+    private void Start() {
         spawner = GetComponentInChildren<WaterSpawner>();
         spawner.enabled = false;
     }
@@ -21,9 +22,9 @@ public class Sponge : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collider) {
         if(collider.CompareTag("Water")) {
             var waterComponent = collider.GetComponent<Water>();
-            waterComponent.spawner.waterCount--;
-            spawner.waterCount++;
-
+            if (waterComponent.fromSponge) return;
+            waterComponent.spawner.waterCount++;
+            spawner.waterCount--;
             Destroy(collider.gameObject, .35f);
         }
     }

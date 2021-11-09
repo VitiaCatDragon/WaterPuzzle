@@ -10,6 +10,7 @@ public class WaterSpawner : MonoBehaviour
     public bool limitWaterDrops = false;
     public bool isFinishWater = false;
     public bool repeatSpawn = true;
+    public bool spongeSpawner = false;
 
     public int limitWaterDropsNumber = 250;
     public int maxWaterCount = 420;
@@ -45,6 +46,8 @@ public class WaterSpawner : MonoBehaviour
             var waterComponent = water.GetComponent<Water>();
             waterComponent.spawner = this;
             waterComponent.finishWater = isFinishWater;
+            if (spongeSpawner)
+                waterComponent.fromSponge = true;
             waterCount++;
             if(limitWaterDrops)
                 _waterDrops.Add(water);
