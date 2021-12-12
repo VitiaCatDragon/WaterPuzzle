@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 235942799375838885}
   m_Layer: 0
   m_Name: Sponge
-  m_TagString: Untagged
+  m_TagString: Sponge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25791f9b4a3965b42b3ba3db6c392d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxWaterCount: 500
 --- !u!61 &235942799375838885
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -108,7 +109,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -169,13 +170,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterPrefab: {fileID: 4291712963573999109, guid: 0cbc07f0ce5dc4940b2b1a02964c838a,
     type: 3}
-  limitWaterDrops: 0
   isFinishWater: 0
   repeatSpawn: 1
   spongeSpawner: 1
-  limitWaterDropsNumber: 250
   maxWaterCount: 0
   waterSpawnCooldown: 0.01
   waterSpawnVelocity: {x: 0.1, y: 2}
   waterCount: 0
   cooldown: 0
+  delayCooldown: 0

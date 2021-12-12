@@ -1,31 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sponge : MonoBehaviour {
-    
-    private WaterSpawner spawner;
+public class Sponge : MonoBehaviour
+{
+
+    public int maxWaterCount = 500;
+
+    private WaterSpawner _spawner;
 
     private void Start() {
-        spawner = GetComponentInChildren<WaterSpawner>();
-        spawner.enabled = false;
+        _spawner = GetComponentInChildren<WaterSpawner>();
+        _spawner.enabled = false;
     }
 
     private void OnMouseUp() {
-        spawner.enabled = false;
+        _spawner.enabled = false;
     }
 
     private void OnMouseDown() {
-        spawner.enabled = true;
+        _spawner.enabled = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collider) {
-        if(collider.CompareTag("Water")) {
-            var waterComponent = collider.GetComponent<Water>();
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.collider.CompareTag("Water") && Mathf.Abs(_spawner.waterCount) < maxWaterCount) {
+            var waterComponent = other.transform.GetComponent<Water>();
             if (waterComponent.fromSponge) return;
-            waterComponent.spawner.waterCount++;
-            spawner.waterCount--;
-            Destroy(collider.gameObject, .35f);
+            waterComponent.spawner.waterCount--;
+            _spawner.waterCount--;
+            Destroy(other.gameObject);
         }
     }
 }
